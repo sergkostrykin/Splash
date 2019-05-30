@@ -13,14 +13,13 @@ final class MovieDetailsViewController: UIViewController {
     // MARK: - Properties
     
     private var output: MovieDetailsViewOutput?
-    private var movie: Movie?
+    
+    private var image: Image?
 
     // MARK: - Outlets
 
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var gradientView: UIView!
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Actions
 
@@ -32,21 +31,7 @@ final class MovieDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(cells: ["MovieTitleTableViewCell"])
-
         output?.didLoad()
-    }
-    
-    private func reload() {
-        tableView.reloadData()
-        gradientView.setGradient()
-        let placeholder = UIImage(named: "placeholder")
-        if let urlString = movie?.posterPath {
-//            let url = "\(Environment.imageUrl)\(urlString)"
-//            posterImageView.kf.setImage(with: url.asURL, placeholder: placeholder)
-        } else {
-            posterImageView.image = placeholder
-        }
     }
 }
 
@@ -58,37 +43,24 @@ extension MovieDetailsViewController {
 
 extension MovieDetailsViewController: MovieDetailsView {
     
-    func showAlert(title: String?, message: String?) {}
-    func showSpinner() {}
-    func dismissSpinner() {}
 
-    func refresh(movie: Movie?) {
-        self.movie = movie
-        reload()
-    }
-}
-
-extension MovieDetailsViewController: UITableViewDataSource {
-    
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTitleTableViewCell", for: indexPath) as? MovieTitleTableViewCell else {
-            return UITableViewCell()
+    func refresh(image: Image?) {
+        self.image = image
+        let placeholder = UIImage(named: "placeholder")
+        imageView.image = placeholder
+        guard let image = image else { return }
+        let url = image.urls?.full
+        imageView.kf.setImage(with: image.urls?.thumb?.asURL, placeholder: placeholder) { [weak self] (thumbnailResult) in
+            switch thumbnailResult {
+            case .success(let value):
+                if self?.image?.urls?.full == url {
+                    self?.imageView.kf.setImage(with: image.urls?.full?.asURL, placeholder: value.image) { (result) in
+                    }
+                }
+            case .failure(let error):
+                self?.imageView.image = placeholder
+                print ("Error loading image: \(error)")
+            }
         }
-        cell.setup(movie: movie)
-        return cell
-        
     }
 }

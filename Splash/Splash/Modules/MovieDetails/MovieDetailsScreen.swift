@@ -15,16 +15,16 @@ protocol MovieDetailsRouter {
 final class MovieDetailsScreen {
     private weak var viewController: MovieDetailsViewController?
     private weak var presenter: MovieDetailsPresenter?
-    private var movie: Movie?
+    private var image: Image?
     
-    init(movie: Movie?) {
-        self.movie = movie
+    init(image: Image?) {
+        self.image = image
     }
 
     private func instantiateViewController() -> MovieDetailsViewController {
         guard let viewController = UIStoryboard(name: "MovieDetails", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else { fatalError("Failed to load MovieDetailsViewСontroller") }
     
-        let presenter = MovieDetailsPresenter(movie: movie)
+        let presenter = MovieDetailsPresenter(image: image)
         presenter.attach(router: self)
         presenter.attach(view: viewController)
         viewController.attach(output: presenter)

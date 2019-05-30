@@ -18,36 +18,16 @@ final class MovieDetailsPresenter {
     private var router: MovieDetailsRouter?
     private weak var view: MovieDetailsView?
     
-    var movie: Movie?
+    var image: Image?
     
     
-    init(movie: Movie?) {
-        self.movie = movie
+    init(image: Image?) {
+        self.image = image
     }
     
 
-    func loadMovieDetails() {
-        guard let id = movie?.id else { return }
-        view?.showSpinner()
-        URNNetworking.fetchPhotos { [weak self] (json, error) in
-            DispatchQueue.main.async {
-                self?.view?.dismissSpinner()
-                if let error = error {
-                    self?.view?.showAlert(title: "Error", message: error.localizedDescription)
-                    return
-                }
-                do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: json ?? [:], options: .prettyPrinted)
-                    let movie = try JSONDecoder().decode(Movie?.self, from: jsonData)
-                    self?.view?.refresh(movie: movie)
-                } catch {
-                    DispatchQueue.main.async {
-                       self?.view?.showAlert(title: "Error", message: error.localizedDescription)
-                    }
-                    print(error)
-                }
-            }
-        }
+    func loadImage() {
+        view?.refresh(image: image)
     }
 
 }
@@ -55,7 +35,7 @@ final class MovieDetailsPresenter {
 extension MovieDetailsPresenter: MovieDetailsViewOutput {
     func didLoad() {
         print(#function)
-        loadMovieDetails()
+        loadImage()
     }
     
     func back() {

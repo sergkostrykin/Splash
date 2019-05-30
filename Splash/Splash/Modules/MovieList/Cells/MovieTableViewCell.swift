@@ -22,32 +22,32 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet private var likedLabelRatingLeadingConstraint: NSLayoutConstraint!
     
     
-    func setup(movie: Movie?, isSeparatorHidden: Bool = false) {
+    func setup(movie: Image?, isSeparatorHidden: Bool = false) {
         
-        movieTitleLabel.text = movie?.title
-        let placeholder = UIImage(named: "placeholder")
-        if let urlString = movie?.posterPath {
-//            let url = "\(Environment.imageUrl)\(urlString)"
-//            movieImageView.kf.setImage(with: url.asURL, placeholder: placeholder)
-        } else {
-            movieImageView.image = placeholder
-        }
-        let popularity = movie?.popularity ?? 0.0
-        let voteAverage = movie?.voteAverage ?? 0.0
-        if voteAverage == 0.0 {
-            ratingView.isHidden = true
-            likedLabelViewLeadingConstraint.isActive = true
-            likedLabel.text = "\(Int(popularity))% liked this movie"
-        } else {
-            ratingView.isHidden = false
-            likedLabelViewLeadingConstraint.isActive = false
-            likedLabel.text = "\(voteAverage) | \(Int(popularity))% liked this movie"
-        }
-        
-        likedLabelRatingLeadingConstraint.isActive = !likedLabelViewLeadingConstraint.isActive
-        let releaseDate = movie?.releaseDate?.apiDate?.releaseDateString ?? ""
-        releaseLabel.text = "In theatres \(releaseDate)"
-        descriptionLabel.text = movie?.overview
-        separator.isHidden = isSeparatorHidden
+//        movieTitleLabel.text = movie?.title
+//        let placeholder = UIImage(named: "placeholder")
+//        if let urlString = movie?.posterPath {
+////            let url = "\(Environment.imageUrl)\(urlString)"
+////            movieImageView.kf.setImage(with: url.asURL, placeholder: placeholder)
+//        } else {
+//            movieImageView.image = placeholder
+//        }
+//        let popularity = movie?.popularity ?? 0.0
+//        let voteAverage = movie?.voteAverage ?? 0.0
+//        if voteAverage == 0.0 {
+//            ratingView.isHidden = true
+//            likedLabelViewLeadingConstraint.isActive = true
+//            likedLabel.text = "\(Int(popularity))% liked this movie"
+//        } else {
+//            ratingView.isHidden = false
+//            likedLabelViewLeadingConstraint.isActive = false
+//            likedLabel.text = "\(voteAverage) | \(Int(popularity))% liked this movie"
+//        }
+//        
+//        likedLabelRatingLeadingConstraint.isActive = !likedLabelViewLeadingConstraint.isActive
+//        let releaseDate = movie?.releaseDate?.apiDate?.releaseDateString ?? ""
+//        releaseLabel.text = "In theatres \(releaseDate)"
+//        descriptionLabel.text = movie?.overview
+//        separator.isHidden = isSeparatorHidden
     }
 }

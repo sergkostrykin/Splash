@@ -12,15 +12,17 @@ final class MovieListViewController: UIViewController {
     
     // MARK: - Properties
     private var output: MovieListViewOutput?
-    private var movies = [Movie]()
+    private var images = [Image]()
     
     // MARK: - Outlets
-    @IBOutlet private var tableView: UITableView!
-    
+    @IBOutlet private var collectionView: UICollectionView!
+
+    @IBOutlet weak var pageLabel: UILabel!
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(cells: ["MovieTableViewCell"])
+        collectionView.register(cells: ["ImageCollectionViewCell"])
+        pageLabel.text = "1 / \(Constants.pagesMax)"
         output?.didLoad()
     }
 }
@@ -36,38 +38,54 @@ extension MovieListViewController: MovieListView {
     func dismissSpinner() {}
     func showAlert(title: String?, message: String?) {}
     
-    func refresh(movies: [Movie]) {
-        self.movies = movies
-        tableView.reloadData()
+    func refresh(images: [Image]) {
+        self.images = images
+        collectionView.reloadData()
     }
 
 }
 
-extension MovieListViewController: UITableViewDataSource {
+extension MovieListViewController: UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as? MovieTableViewCell else {
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
+            return UICollectionViewCell()
         }
-        let movie = movies[indexPath.row]
-        cell.setup(movie: movie, isSeparatorHidden: indexPath.row == movies.count - 1)
+        
+        if indexPath.item == images.count - 5 {
+            output?.loadNext()
+        }
+
+        let image = images[indexPath.item]
+        cell.setup(image: image)
         return cell
 
     }
 }
 
-extension MovieListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let movie = movies[indexPath.row]
-        output?.showMovieDetails(movie: movie)
+extension MovieListViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / CGFloat(Constants.imagesPerRow),
+                      height: collectionView.frame.height / CGFloat(Constants.rowsPerPage))
     }
+
+}
+
+extension MovieListViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let image = images[indexPath.item]
+        output?.showImage(image: image)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = Int(collectionView.contentOffset.x / collectionView.bounds.width) + 1
+        pageLabel.text = "\(page) / \(Constants.pagesMax)"
+    }
+
 }

@@ -63,7 +63,7 @@ open class URNNetworking: NSObject {
     static func url(for urlString: String, parameters: [String: String] = [:]) throws -> URL {
         var str = urlString
         var authorizedParams = parameters
-        authorizedParams["api_key"] = URNNetworkingConstants.apiKey
+        authorizedParams["client_id"] = URNNetworkingConstants.apiKey
         for parameter in authorizedParams {
             let value = parameter.value
             guard let validValue = value.addingPercentEncoding(withAllowedCharacters: []) else {
@@ -81,11 +81,10 @@ open class URNNetworking: NSObject {
     }
     
     
-    public class func fetchPhotos(completion: ((Any?, Error?) -> Void)?) {
-        let parameters = ["certification_country": "US",
-                          "certification.lte": "G",
-                          "sort_by": "popularity.desc"];
-        let path = URNNetworkingConstants.baseUrl + "/discover/movie"
+    public class func fetchPhotos(page: Int, perPage: Int, completion: ((Any?, Error?) -> Void)?) {
+        let parameters = ["page": "\(page)",
+                          "per_page": "\(perPage)"]
+        let path = URNNetworkingConstants.baseUrl + "/photos"
         URNNetworking.startTask(for: path, parameters: parameters) { json, _, error in
             if let error = error {
                 DispatchQueue.main.async {

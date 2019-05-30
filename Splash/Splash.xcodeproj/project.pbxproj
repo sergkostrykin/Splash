@@ -12,8 +12,6 @@
 		5CCCD22C229ED0A3004E06F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCCD22A229ED0A3004E06F8 /* LaunchScreen.storyboard */; };
 		5CCCD2A8229EEC80004E06F8 /* libURNNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCCD2A7229EEC04004E06F8 /* libURNNetworking.a */; };
 		5CCCD2AE229EEF68004E06F8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2AD229EEF68004E06F8 /* AppRouter.swift */; };
-		5CCCD2C1229EEF82004E06F8 /* MovieTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CCCD2B1229EEF82004E06F8 /* MovieTitleTableViewCell.xib */; };
-		5CCCD2C2229EEF82004E06F8 /* MovieTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2B2229EEF82004E06F8 /* MovieTitleTableViewCell.swift */; };
 		5CCCD2C3229EEF82004E06F8 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2B3229EEF82004E06F8 /* MovieDetailsPresenter.swift */; };
 		5CCCD2C4229EEF82004E06F8 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2B4229EEF82004E06F8 /* MovieDetailsViewController.swift */; };
 		5CCCD2C5229EEF82004E06F8 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCCD2B5229EEF82004E06F8 /* MovieDetails.storyboard */; };
@@ -35,6 +33,10 @@
 		5CCCD2E0229EEF9A004E06F8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2D7229EEF9A004E06F8 /* UIViewExtensions.swift */; };
 		5CCCD2E1229EEF9A004E06F8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2D8229EEF9A004E06F8 /* StringExtension.swift */; };
 		5CCCD2E2229EEF9A004E06F8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCCD2D9229EEF9A004E06F8 /* UIColorExtensions.swift */; };
+		5CF98F73229F2B2000382E89 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF98F71229F2B2000382E89 /* ImageCollectionViewCell.swift */; };
+		5CF98F74229F2B2000382E89 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF98F72229F2B2000382E89 /* ImageCollectionViewCell.xib */; };
+		5CF98F77229F300500382E89 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF98F76229F300500382E89 /* UICollectionViewExtension.swift */; };
+		5CF98F79229FA9A500382E89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF98F78229FA9A500382E89 /* Constants.swift */; };
 		66431A0E45D85BAC6531DB19 /* Pods_Splash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7279659323989E478882A6D /* Pods_Splash.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +58,6 @@
 		5CCCD22D229ED0A3004E06F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CCCD2A2229EEC03004E06F8 /* URNNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = URNNetworking.xcodeproj; path = ../URNNetworking/URNNetworking.xcodeproj; sourceTree = "<group>"; };
 		5CCCD2AD229EEF68004E06F8 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		5CCCD2B1229EEF82004E06F8 /* MovieTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTitleTableViewCell.xib; sourceTree = "<group>"; };
-		5CCCD2B2229EEF82004E06F8 /* MovieTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTitleTableViewCell.swift; sourceTree = "<group>"; };
 		5CCCD2B3229EEF82004E06F8 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		5CCCD2B4229EEF82004E06F8 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		5CCCD2B5229EEF82004E06F8 /* MovieDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
@@ -79,6 +79,10 @@
 		5CCCD2D7229EEF9A004E06F8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		5CCCD2D8229EEF9A004E06F8 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		5CCCD2D9229EEF9A004E06F8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		5CF98F71229F2B2000382E89 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CF98F72229F2B2000382E89 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		5CF98F76229F300500382E89 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		5CF98F78229FA9A500382E89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Splash/Modules/MovieList/Cells/Constants.swift; sourceTree = SOURCE_ROOT; };
 		792FC0111FAA72D1E02A8B31 /* Pods-Splash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.release.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.release.xcconfig"; sourceTree = "<group>"; };
 		97CFAD479107D632D4A3E851 /* Pods-Splash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Splash.debug.xcconfig"; path = "Target Support Files/Pods-Splash/Pods-Splash.debug.xcconfig"; sourceTree = "<group>"; };
 		A7279659323989E478882A6D /* Pods_Splash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Splash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,13 +146,13 @@
 				5CCCD2B8229EEF82004E06F8 /* MovieList */,
 				5CCCD2AF229EEF82004E06F8 /* MovieDetails */,
 			);
-			name = Modules;
-			path = ../../../MovieDB/MovieDB/Modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		5CCCD256229ED78F004E06F8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5CF98F78229FA9A500382E89 /* Constants.swift */,
 				5CCCD2D2229EEF9A004E06F8 /* Extensions */,
 				5CCCD2CF229EEF9A004E06F8 /* Models */,
 			);
@@ -177,7 +181,6 @@
 		5CCCD2AF229EEF82004E06F8 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				5CCCD2B0229EEF82004E06F8 /* Cells */,
 				5CCCD2B3229EEF82004E06F8 /* MovieDetailsPresenter.swift */,
 				5CCCD2B4229EEF82004E06F8 /* MovieDetailsViewController.swift */,
 				5CCCD2B5229EEF82004E06F8 /* MovieDetails.storyboard */,
@@ -187,15 +190,6 @@
 			name = MovieDetails;
 			path = Splash/Modules/MovieDetails;
 			sourceTree = SOURCE_ROOT;
-		};
-		5CCCD2B0229EEF82004E06F8 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				5CCCD2B1229EEF82004E06F8 /* MovieTitleTableViewCell.xib */,
-				5CCCD2B2229EEF82004E06F8 /* MovieTitleTableViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
 		};
 		5CCCD2B8229EEF82004E06F8 /* MovieList */ = {
 			isa = PBXGroup;
@@ -216,6 +210,8 @@
 			children = (
 				5CCCD2BB229EEF82004E06F8 /* MovieTableViewCell.xib */,
 				5CCCD2BC229EEF82004E06F8 /* MovieTableViewCell.swift */,
+				5CF98F71229F2B2000382E89 /* ImageCollectionViewCell.swift */,
+				5CF98F72229F2B2000382E89 /* ImageCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -233,6 +229,7 @@
 		5CCCD2D2229EEF9A004E06F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5CF98F76229F300500382E89 /* UICollectionViewExtension.swift */,
 				5CCCD2D3229EEF9A004E06F8 /* NSErrorExtension.swift */,
 				5CCCD2D4229EEF9A004E06F8 /* DateTimeTools.swift */,
 				5CCCD2D5229EEF9A004E06F8 /* UITableViewExtension.swift */,
@@ -333,8 +330,8 @@
 				5CCCD2C5229EEF82004E06F8 /* MovieDetails.storyboard in Resources */,
 				5CCCD22C229ED0A3004E06F8 /* LaunchScreen.storyboard in Resources */,
 				5CCCD2C9229EEF82004E06F8 /* MovieTableViewCell.xib in Resources */,
+				5CF98F74229F2B2000382E89 /* ImageCollectionViewCell.xib in Resources */,
 				5CCCD2C8229EEF82004E06F8 /* MovieList.storyboard in Resources */,
-				5CCCD2C1229EEF82004E06F8 /* MovieTitleTableViewCell.xib in Resources */,
 				5CCCD229229ED0A3004E06F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,11 +392,12 @@
 				5CCCD2DF229EEF9A004E06F8 /* UIViewControllerExtensions.swift in Sources */,
 				5CCCD222229ED0A0004E06F8 /* AppDelegate.swift in Sources */,
 				5CCCD2CA229EEF82004E06F8 /* MovieTableViewCell.swift in Sources */,
-				5CCCD2C2229EEF82004E06F8 /* MovieTitleTableViewCell.swift in Sources */,
 				5CCCD2DB229EEF9A004E06F8 /* MovieList.swift in Sources */,
 				5CCCD2DE229EEF9A004E06F8 /* UITableViewExtension.swift in Sources */,
+				5CF98F77229F300500382E89 /* UICollectionViewExtension.swift in Sources */,
 				5CCCD2E0229EEF9A004E06F8 /* UIViewExtensions.swift in Sources */,
 				5CCCD2AE229EEF68004E06F8 /* AppRouter.swift in Sources */,
+				5CF98F73229F2B2000382E89 /* ImageCollectionViewCell.swift in Sources */,
 				5CCCD2E1229EEF9A004E06F8 /* StringExtension.swift in Sources */,
 				5CCCD2CC229EEF82004E06F8 /* MovieListView.swift in Sources */,
 				5CCCD2DA229EEF9A004E06F8 /* Movie.swift in Sources */,
@@ -409,6 +407,7 @@
 				5CCCD2C3229EEF82004E06F8 /* MovieDetailsPresenter.swift in Sources */,
 				5CCCD2C6229EEF82004E06F8 /* MovieDetailsScreen.swift in Sources */,
 				5CCCD2CE229EEF82004E06F8 /* MovieListPresenter.swift in Sources */,
+				5CF98F79229FA9A500382E89 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
