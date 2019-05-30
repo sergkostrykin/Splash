@@ -97,11 +97,9 @@ open class URNNetworking: NSObject {
         }
     }
 
-    class func searchPhotos(query: String, completion: ((Any?, Error?) -> Void)?) {
-        let parameters = ["certification_country": "US",
-                          "certification.lte": "G",
-                          "sort_by": "popularity.desc"];
-        let path = URNNetworkingConstants.baseUrl + "/discover/movie"
+    public class func searchPhotos(query: String, completion: ((Any?, Error?) -> Void)?) {
+        let parameters = ["query": query]
+        let path = URNNetworkingConstants.baseUrl + "/search/photos"
         URNNetworking.startTask(for: path, parameters: parameters) { json, _, error in
             if let error = error {
                 DispatchQueue.main.async {

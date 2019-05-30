@@ -13,6 +13,7 @@ protocol ImageListViewOutput: class {
     func didLoad()
     func showImage(image: Image)
     func loadNext()
+    func openImageSearch()
 }
 
 final class ImageListPresenter {
@@ -65,6 +66,10 @@ extension ImageListPresenter: ImageListViewOutput {
             currentPage += 1
             loadMovies()
         }
+    }
+    
+    func openImageSearch() {
+        router?.openImageSearch()
     }
 }
 

@@ -8,17 +8,15 @@
 
 import Foundation
 
-struct ImageList: Decodable {
+struct ImageSearchResult: Decodable {
     
-    let page: Int?
-    let totalResults: Int?
+    let total: Int?
     let totalPages: Int?
     let results: [Image]?
     
     enum CodingKeys: String, CodingKey {
-        case page
+        case total
         case results
-        case totalResults = "total_results"
         case totalPages = "total_pages"
     }
 }

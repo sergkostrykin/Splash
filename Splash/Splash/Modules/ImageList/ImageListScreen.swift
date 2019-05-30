@@ -9,7 +9,9 @@
 import UIKit
 
 protocol ImageListRouter {
+    
     func showImage(image: Image)
+    func openImageSearch()
 }
 
 final class ImageListScreen {
@@ -39,6 +41,10 @@ extension ImageListScreen: ImageListRouter {
     
     func showImage(image: Image) {
         ImageDetailsScreen(image: image).push(to: viewController?.navigationController)
+    }
+    
+    func openImageSearch() {
+        ImageSearchScreen().push(to: viewController?.navigationController)
     }
 
 }

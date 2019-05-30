@@ -16,8 +16,14 @@ final class ImageListViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet private var collectionView: UICollectionView!
-
     @IBOutlet weak var pageLabel: UILabel!
+    
+    // MARK: - Actions
+    @IBAction func searchButtonClicked(_ sender: UIButton) {
+        output?.openImageSearch()
+    }
+    
+
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
