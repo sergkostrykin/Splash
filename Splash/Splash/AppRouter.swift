@@ -28,7 +28,7 @@ class AppRouter: NSObject {
     private func showAppropriateView() {
         let navigation = UINavigationController(rootViewController: UIViewController())
         navigation.setNavigationBarHidden(true, animated: false)
-        MovieListScreen().push(to: navigation, animated: false)
+        ImageListScreen().push(to: navigation, animated: false)
         animateTransition(to: navigation)
     }
     

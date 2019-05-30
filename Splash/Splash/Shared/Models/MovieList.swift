@@ -1,5 +1,5 @@
 //
-//  MovieList.swift
+//  ImageList.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/16/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieList: Decodable {
+struct ImageList: Decodable {
     
     let page: Int?
     let totalResults: Int?

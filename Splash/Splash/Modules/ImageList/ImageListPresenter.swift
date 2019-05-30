@@ -1,5 +1,5 @@
 //  
-//  MovieListPresenter.swift
+//  ImageListPresenter.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/16/19.
@@ -9,16 +9,16 @@
 import Foundation
 import URNNetworking
 
-protocol MovieListViewOutput: class {
+protocol ImageListViewOutput: class {
     func didLoad()
     func showImage(image: Image)
     func loadNext()
 }
 
-final class MovieListPresenter {
+final class ImageListPresenter {
     
-    private var router: MovieListRouter?
-    private weak var view: MovieListView?
+    private var router: ImageListRouter?
+    private weak var view: ImageListView?
     private var currentPage: Int = 1
     private var images = [Image]()
     
@@ -50,7 +50,7 @@ final class MovieListPresenter {
     }
 }
 
-extension MovieListPresenter: MovieListViewOutput {
+extension ImageListPresenter: ImageListViewOutput {
     func didLoad() {
         currentPage = 1
         loadMovies()
@@ -68,12 +68,12 @@ extension MovieListPresenter: MovieListViewOutput {
     }
 }
 
-extension MovieListPresenter {
-    func attach(router: MovieListRouter) {
+extension ImageListPresenter {
+    func attach(router: ImageListRouter) {
         self.router = router
     }
     
-    func attach(view: MovieListView) {
+    func attach(view: ImageListView) {
         self.view = view
     }
 }

@@ -1,5 +1,5 @@
 //  
-//  MovieDetailsPresenter.swift
+//  ImageDetailsPresenter.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/17/19.
@@ -9,14 +9,14 @@
 import Foundation
 import URNNetworking
 
-protocol MovieDetailsViewOutput: class {
+protocol ImageDetailsViewOutput: class {
     func didLoad()
     func back()
 }
 
-final class MovieDetailsPresenter {
-    private var router: MovieDetailsRouter?
-    private weak var view: MovieDetailsView?
+final class ImageDetailsPresenter {
+    private var router: ImageDetailsRouter?
+    private weak var view: ImageDetailsView?
     
     var image: Image?
     
@@ -32,7 +32,7 @@ final class MovieDetailsPresenter {
 
 }
 
-extension MovieDetailsPresenter: MovieDetailsViewOutput {
+extension ImageDetailsPresenter: ImageDetailsViewOutput {
     func didLoad() {
         print(#function)
         loadImage()
@@ -43,12 +43,12 @@ extension MovieDetailsPresenter: MovieDetailsViewOutput {
     }
 }
 
-extension MovieDetailsPresenter {
-    func attach(router: MovieDetailsRouter) {
+extension ImageDetailsPresenter {
+    func attach(router: ImageDetailsRouter) {
         self.router = router
     }
     
-    func attach(view: MovieDetailsView) {
+    func attach(view: ImageDetailsView) {
         self.view = view
     }
 }

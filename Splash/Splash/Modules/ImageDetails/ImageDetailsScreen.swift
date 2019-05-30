@@ -1,5 +1,5 @@
 //  
-//  MovieDetailsScreen.swift
+//  ImageDetailsScreen.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/17/19.
@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol MovieDetailsRouter {
+protocol ImageDetailsRouter {
     func routeBack()
 }
 
-final class MovieDetailsScreen {
-    private weak var viewController: MovieDetailsViewController?
-    private weak var presenter: MovieDetailsPresenter?
+final class ImageDetailsScreen {
+    private weak var viewController: ImageDetailsViewController?
+    private weak var presenter: ImageDetailsPresenter?
     private var image: Image?
     
     init(image: Image?) {
         self.image = image
     }
 
-    private func instantiateViewController() -> MovieDetailsViewController {
-        guard let viewController = UIStoryboard(name: "MovieDetails", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else { fatalError("Failed to load MovieDetailsViewСontroller") }
+    private func instantiateViewController() -> ImageDetailsViewController {
+        guard let viewController = UIStoryboard(name: "ImageDetails", bundle: nil).instantiateViewController(withIdentifier: "ImageDetailsViewController") as? ImageDetailsViewController else { fatalError("Failed to load ImageDetailsViewСontroller") }
     
-        let presenter = MovieDetailsPresenter(image: image)
+        let presenter = ImageDetailsPresenter(image: image)
         presenter.attach(router: self)
         presenter.attach(view: viewController)
         viewController.attach(output: presenter)
@@ -40,7 +40,7 @@ final class MovieDetailsScreen {
     }
 }
 
-extension MovieDetailsScreen: MovieDetailsRouter {
+extension ImageDetailsScreen: ImageDetailsRouter {
     
     func routeBack() {
         viewController?.navigationController?.popViewController(animated: true)

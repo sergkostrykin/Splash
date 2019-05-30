@@ -1,5 +1,5 @@
 //  
-//  MovieDetailsViewController.swift
+//  ImageDetailsViewController.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/17/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class MovieDetailsViewController: UIViewController {
+final class ImageDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var output: MovieDetailsViewOutput?
+    private var output: ImageDetailsViewOutput?
     
     private var image: Image?
 
@@ -35,13 +35,13 @@ final class MovieDetailsViewController: UIViewController {
     }
 }
 
-extension MovieDetailsViewController {
-    func attach(output: MovieDetailsViewOutput) {
+extension ImageDetailsViewController {
+    func attach(output: ImageDetailsViewOutput) {
         self.output = output
     }
 }
 
-extension MovieDetailsViewController: MovieDetailsView {
+extension ImageDetailsViewController: ImageDetailsView {
     
 
     func refresh(image: Image?) {

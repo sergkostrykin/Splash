@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Details View Controller-->
+        <!--Image Details View Controller-->
         <scene sceneID="exn-GT-IoU">
             <objects>
-                <viewController storyboardIdentifier="MovieDetailsViewController" id="m5r-tf-IJT" customClass="MovieDetailsViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageDetailsViewController" id="m5r-tf-IJT" customClass="ImageDetailsViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3Y-us-3aW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

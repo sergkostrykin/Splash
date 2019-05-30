@@ -1,5 +1,5 @@
 //  
-//  MovieListViewController.swift
+//  ImageListViewController.swift
 //  MovieDB
 //
 //  Created by Sergiy Kostrykin on 5/16/19.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-final class MovieListViewController: UIViewController {
+final class ImageListViewController: UIViewController {
     
     // MARK: - Properties
-    private var output: MovieListViewOutput?
+    private var output: ImageListViewOutput?
     private var images = [Image]()
     
     // MARK: - Outlets
@@ -27,13 +27,13 @@ final class MovieListViewController: UIViewController {
     }
 }
 
-extension MovieListViewController {
-    func attach(output: MovieListViewOutput) {
+extension ImageListViewController {
+    func attach(output: ImageListViewOutput) {
         self.output = output
     }
 }
 
-extension MovieListViewController: MovieListView {
+extension ImageListViewController: ImageListView {
     func showSpinner() {}
     func dismissSpinner() {}
     func showAlert(title: String?, message: String?) {}
@@ -45,7 +45,7 @@ extension MovieListViewController: MovieListView {
 
 }
 
-extension MovieListViewController: UICollectionViewDataSource {
+extension ImageListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -67,7 +67,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
 }
 
-extension MovieListViewController: UICollectionViewDelegateFlowLayout {
+extension ImageListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / CGFloat(Constants.imagesPerRow),
@@ -76,7 +76,7 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-extension MovieListViewController: UICollectionViewDelegate {
+extension ImageListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = images[indexPath.item]
